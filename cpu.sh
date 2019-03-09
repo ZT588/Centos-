@@ -2,17 +2,18 @@
 
 
 echo "=========Zenlayer QA  Report =========================================="
-
-
-more /proc/cpuinfo | grep "model name"
-
+more /etc/redhat-release 
+uname -a
+echo "====================================================================="
+cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+echo " physical id"
+cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
 echo "======================================================================="
-
-grep MemTotal /proc/meminfo
-
-echo "======================================================================="
-
 df -h
 
 echo "======================================================================="
-more /etc/redhat-release
+grep MemTotal /proc/meminfo
+dmidecode|grep -P -A5 "Memory\s+Device"|grep Size|grep -v Range
+echo "======================================================================="
+
+rm cpu.sh -y
