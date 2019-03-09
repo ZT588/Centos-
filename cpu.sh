@@ -16,4 +16,4 @@ grep MemTotal /proc/meminfo
 dmidecode|grep -P -A5 "Memory\s+Device"|grep Size|grep -v Range
 echo "======================================================================="
 
-rm cpu.sh -y
+rm cpu.sh 
