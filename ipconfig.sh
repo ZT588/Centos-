@@ -29,7 +29,7 @@ do
   echo "
 IPADDR$i=$num.$i
 NETMASK$i=$c
-GATEWAY$i=$num.$g" >>/root/shell/$d
+GATEWAY$i=$num.$g" >>/etc/sysconfig/network-scripts/ifcfg-$d
 
 
 done
