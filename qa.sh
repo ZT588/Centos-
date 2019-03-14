@@ -16,7 +16,7 @@ yum install mtr -y
 
 mtr=$(mtr -c 5 101.226.197.179 --report)
 
-rm qa.sh -y
+rm qa.sh 
 
 echo "================================= NOC QA REPORT================================"
 
