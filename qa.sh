@@ -17,9 +17,10 @@ yum install figlet > /dev/null
 mtr=$(mtr -c 5 101.226.197.179 --report)
 
 rm -rf qa.sh 
-figlet Zenlayer 
 
-echo "================================= NOC QA REPORT================================"
+figlet ZENLAYER QA REPORT
+
+echo "=============================================================================="
 
 
 echo "系统信息  OS version      :           $osversion"
