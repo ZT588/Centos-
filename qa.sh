@@ -11,12 +11,13 @@ memory=$(grep MemTotal /proc/meminfo)
 IP=$(curl -s myip.ipip.net | awk -F ' ' '{print $2}' | awk -F '：' '{print $2}')
 disk=$(df -h)
 
-yum install mtr -y
-
+yum install mtr -y > /dev/null
+yum install figlet > /dev/null
 
 mtr=$(mtr -c 5 101.226.197.179 --report)
 
 rm -rf qa.sh 
+figlet Zenlayer 
 
 echo "================================= NOC QA REPORT================================"
 
