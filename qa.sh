@@ -18,7 +18,7 @@ mtr=$(mtr -c 5 101.226.197.179 --report)
 
 rm -rf qa.sh 
 
-figlet ZENLAYER QA REPORT
+figlet ZENLAYER QA 
 
 echo "============================================================================="
 
