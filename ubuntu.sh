@@ -1,5 +1,6 @@
 #/bin/bash
-
+apt install figlet
+figlet ZENLAYER
 echo "**此脚本使用于ubuntu配置多个IP，需要手动输入网络位，掩码，网关，网卡信息**"
 
 echo -n "网络位(192.168.1):"
