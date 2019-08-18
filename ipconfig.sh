@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum install figlet -> /dev/null
+yum install figlet > /dev/null
 
 figlet IPCONFIG TOOL
 
@@ -27,7 +27,7 @@ mask=255.255.255.248
 f=$(($e+1))
 m=$(($f+1))
 v=$(($m+5))
-for ((i=m,j=h; i<v; i ++,j++))
+for ((i=m,j=h; i<v; i ++,j++)) 
 do
  echo "
 IPADDR$j=$b.$c.$d.$i
@@ -77,7 +77,7 @@ echo "
 IPADDR$j=$b.$c.$d.$i
 NETMASK$j=$mask
 GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
-
+done
 
 
 elif [ $g -eq 26 ];then
@@ -120,6 +120,14 @@ IPADDR$j=$b.$c.$d.$i
 NETMASK$j=$mask
 GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
 done
+
+
+
+
+
+
+
+
 
 
 
