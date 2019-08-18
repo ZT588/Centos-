@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum install figlet > /dev/null
+yum install figlet -> /dev/null
 
 figlet IPCONFIG TOOL
 
