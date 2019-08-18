@@ -1,37 +1,128 @@
-#/bin/bash
+#!/bin/bash
 
-echo "**此脚本使用于centos配置多个IP，需要手动输入网络位，掩码，网关，网卡信息**"
+yum install figlet > /dev/null
 
-echo -n "网络位(192.168.1):"
-read num
+figlet IPCONFIG TOOL
+
+echo "适用一下掩码 /30 /29 /28 /27 /26 /25 /24 "
 
 
-echo -n "起始IP(2):"
+
+echo -n " 请输入IP以及掩码(10.1.1.0/24)"
 read a
+b=$(echo "$a" | awk -F "." '{print $1}')
+c=$(echo "$a" | awk -F "." '{print $2}')
+d=$(echo "$a" | awk -F "." '{print $3}')
+e=$(echo "$a" | awk -F "." '{print $4}'| awk -F "/" '{print $1}')
+g=$(echo "$a" | awk -F "/" '{print $2}')
 
-echo -n "结束IP(254):"
-read b
-
-echo -n "掩码(255.255.255.0):"
-read c
-
-echo -n "网关(最后一位):"
-read g
-
-echo -n "网卡名(eth0):"
-read d
-echo -n "IP排序(如果是多ip段，此数字不能重复使用):"
+echo -n "输入起始IP个数（IPADDR2）"
 read h
-for((i=a,j=h;i<=b;i++,j++))
 
+echo -n "请输入网卡名（eth0）"
+read nic
 
-
+if [ $g -eq 29 ];then
+mask=255.255.255.248
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+5))
+for ((i=m,j=h; i<v; i ++,j++))
 do
-
-  echo "
-IPADDR$j=$num.$i
-NETMASK$j=$c
-GATEWAY$j=$num.$g" >>/etc/sysconfig/network-scripts/ifcfg-$d
-
-
+ echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
 done
+
+
+elif [ $g -eq 28 ];then
+mask=255.255.255.240
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+13))
+for ((i=m,j=h; i<v; i ++,j++))
+do
+echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+done
+
+
+elif [ $g -eq 27 ];then
+mask=255.255.255.224
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+29))
+for ((i=m,j=h; i<v; i ++,j++))
+do
+echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+done
+
+
+
+
+elif [ $g -eq 30 ];then
+mask=255.255.255.252
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+1))
+for ((i=m,j=h; i<v; i ++,j++))
+do
+echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+
+
+
+elif [ $g -eq 26 ];then
+mask=255.255.255.192
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+61))
+for ((i=m,j=h; i<v; i ++,j++))
+do
+echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+done
+
+
+elif [ $g -eq 25 ];then
+mask=255.255.255.128
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+125))
+for ((i=m,j=h; i<v; i ++,j++))
+do
+echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+done
+
+
+elif [ $g -eq 24 ];then
+mask=255.255.255.0
+f=$(($e+1))
+m=$(($f+1))
+v=$(($m+253))
+for ((i=m,j=h; i<v; i ++,j++))
+do
+echo "
+IPADDR$j=$b.$c.$d.$i
+NETMASK$j=$mask
+GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+done
+
+
+
+else
+echo faile
+fi
