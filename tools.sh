@@ -1,14 +1,5 @@
 #!/bin/bash
 
-#定义终端输出颜色
-Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
-Info="${Green_font_prefix}[信息]${Font_color_suffix}"
-Error="${Red_font_prefix}[错误]${Font_color_suffix}"
-Tip="${Green_font_prefix}[注意]${Font_color_suffix}"
-
-
-
-
 
 ipping(){
  #!/bin/bash
@@ -306,22 +297,18 @@ done
 }
 
 
+ssr(){
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
+}
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" 
+Green_background_prefix="\033[42;37m" 
+Red_background_prefix="\033[41;37m" 
+Font_color_suffix="\033[0m"
 
 
 
@@ -334,20 +321,22 @@ figlet NOC Tools
  ${Green_font_prefix} 2.${Font_color_suffix} 运行  ASPING
  ${Green_font_prefix} 3.${Font_color_suffix} 运行  批量配置IP 
  ${Green_font_prefix} 4.${Font_color_suffix} 运行  QA 
- ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu 批量配置IP"
-
-echo -n "请输入数字 [1-9]:"
+ ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu 批量配置IP
+ ${Green_font_prefix} 6.${Font_color_suffix} 安装  SSR"
+#echo -n "请输入数字 [1-9]:"
 read -p "请输入数字 [1-9]:" numm
 
 if [ "$numm" -eq "1" ];then
 ipping
 
 elif [ "$numm" -eq "2" ];then
-aspingi
+asping
 elif [ "$numm" -eq "3" ];then
 ipconfig
 elif [ "$numm" -eq "4" ];then
 qa
 elif [ "$numm" -eq "5" ];then
 iptool
+elif [ "$numm" -eq "6" ];then
+ssr
 fi
