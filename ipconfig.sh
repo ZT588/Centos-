@@ -118,7 +118,7 @@ do
 echo "
 IPADDR$j=$b.$c.$d.$i
 NETMASK$j=$mask
-GATEWAY$j=$b.$c.$d.$f" >>/etc/sysconfig/network-scripts/ifcfg-$nic
+GATEWAY$j=128.1.84.241" >>/etc/sysconfig/network-scripts/ifcfg-$nic
 done
 
 
