@@ -301,13 +301,15 @@ ssr(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
 }
 
+autossh(){
+wget -N --no-check-certificate https://raw.githubusercontent.com/ZT588/Centos-/master/autossh1.0.sh && chmod +x autossh1.0.sh && bash autossh1.0.sh
+}
 
 
 
-
-Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" 
-Green_background_prefix="\033[42;37m" 
-Red_background_prefix="\033[41;37m" 
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m"
+Green_background_prefix="\033[42;37m"
+Red_background_prefix="\033[41;37m"
 Font_color_suffix="\033[0m"
 
 
@@ -315,15 +317,15 @@ Font_color_suffix="\033[0m"
 clear
 yum install figlet -y > /dev/null
 
-figlet NOC Tools 
- echo && echo -e "一键运维脚本 
- ${Green_font_prefix} 1.${Font_color_suffix} 运行  批量PING IP 
+figlet NOC Tools
+ echo && echo -e "一键运维脚本
+ ${Green_font_prefix} 1.${Font_color_suffix} 运行  批量PING IP
  ${Green_font_prefix} 2.${Font_color_suffix} 运行  ASPING
- ${Green_font_prefix} 3.${Font_color_suffix} 运行  批量配置IP 
- ${Green_font_prefix} 4.${Font_color_suffix} 运行  QA 
+ ${Green_font_prefix} 3.${Font_color_suffix} 运行  批量配置IP
+ ${Green_font_prefix} 4.${Font_color_suffix} 运行  QA
  ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu 批量配置IP
- ${Green_font_prefix} 6.${Font_color_suffix} 安装  SSR"
-#echo -n "请输入数字 [1-9]:"
+ ${Green_font_prefix} 6.${Font_color_suffix} 安装  SSR
+ ${Green_font_prefix} 7.${Font_color_suffix} 安装  批量登录"
 read -p "请输入数字 [1-9]:" numm
 
 if [ "$numm" -eq "1" ];then
@@ -339,4 +341,10 @@ elif [ "$numm" -eq "5" ];then
 iptool
 elif [ "$numm" -eq "6" ];then
 ssr
+elif [ "$numm" -eq "7" ];then
+autossh
 fi
+
+
+
+
