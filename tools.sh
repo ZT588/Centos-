@@ -3,6 +3,7 @@
 
 ipping(){
  #!/bin/bash
+ echo "1.请先将要扫描的IP段保存到IP文件下。2.扫描完毕后请在workingip查看结果。本功能适合多IP段扫描"
  cd
  rm  workingip
  touch workingip
