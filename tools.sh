@@ -325,7 +325,7 @@ figlet NOC Tools
  ${Green_font_prefix} 4.${Font_color_suffix} 运行  QA
  ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu 批量配置IP
  ${Green_font_prefix} 6.${Font_color_suffix} 安装  SSR
- ${Green_font_prefix} 7.${Font_color_suffix} 安装  批量登录"
+ ${Green_font_prefix} 7.${Font_color_suffix} 运行  批量SSH下发命令"
 read -p "请输入数字 [1-9]:" numm
 
 if [ "$numm" -eq "1" ];then
