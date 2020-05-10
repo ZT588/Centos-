@@ -1,10 +1,10 @@
 #/bin/bash              
 echo "**此脚本使用于ubuntu18.04配置主IP，需要手动输入IP，网关，网卡信息**"
-echo -n "IP地址(192.168.1/30):"
+echo -n "IPaddress(192.168.1/30):"
 read num
-echo -n "网关:"
+echo -n "Gateway:"
 read g
-echo -n "网卡名(eth0):"
+echo -n "NIC Name(eth0):"
 read d
 m=$(find  /etc/netplan | grep .*yaml)
 
