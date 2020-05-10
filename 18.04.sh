@@ -1,12 +1,13 @@
-#/bin/bash		
-echo "**此脚本使用于ubuntu配置多个IP，需要手动输入网络位，掩码，网关，网卡信息**"
+#/bin/bash              
+echo "**此脚本使用于ubuntu18.04配置主IP，需要手动输入IP，网关，网卡信息**"
 echo -n "IP地址(192.168.1/30):"
 read num
 echo -n "网关:"
 read g
 echo -n "网卡名(eth0):"
 read d
-do
+m=$(find  /etc/netplan | grep .*yaml)
+
   echo "
 network:
   version: 2
@@ -19,6 +20,4 @@ network:
       addresses: [$num]
       gateway4: $g
       nameservers:
-        addresses: [8.8.8.8,8.8.4.4]" >>/etc/netplan# vi 01-netcfg.yaml
-done
-}
+        addresses: [8.8.8.8,8.8.4.4]" >>$m
