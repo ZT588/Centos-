@@ -297,6 +297,22 @@ gateway $num.$g" >>/etc/network/interfaces
 done
 }
 
+ub16b0(){
+yum install wget -y &&wget https://raw.githubusercontent.com/ZT588/Centos-/master/ub16bound0.sh &&chmod +x ub16bound0.sh&&./ub16bound0.sh
+}
+
+ub16b4(){
+yum install wget -y &&wget https://raw.githubusercontent.com/ZT588/Centos-/master/ub16bond4.sh &&chmod +x ub16bond4.sh&&./ub16bound0.sh
+}
+
+ub1804(){
+yum install wget -y &&wget https://raw.githubusercontent.com/ZT588/Centos-/master/18.04.sh &&chmod +x 18.04.sh&&./18.04.sh
+}
+
+ub18b4(){
+yum install wget -y &&wget https://raw.githubusercontent.com/ZT588/Centos-/master/ub18bound4.sh &&chmod +x ub18bound4.sh&&./ub18bound4.sh
+}
+
 
 ssr(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
@@ -325,8 +341,12 @@ figlet NOC Tools
  ${Green_font_prefix} 3.${Font_color_suffix} 运行  批量配置IP
  ${Green_font_prefix} 4.${Font_color_suffix} 运行  QA
  ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu 批量配置IP
- ${Green_font_prefix} 6.${Font_color_suffix} 安装  SSR
- ${Green_font_prefix} 7.${Font_color_suffix} 运行  批量SSH下发命令"
+ ${Green_font_prefix} 6.${Font_color_suffix} 安装  ubuntu Bound0
+ ${Green_font_prefix} 7.${Font_color_suffix} 运行  ubuntu Bound4
+ ${Green_font_prefix} 8.${Font_color_suffix} 运行  Ubuntu18.04 配置IP
+ ${Green_font_prefix} 9.${Font_color_suffix} 运行  Ubuntu18 Bound4
+ ${Green_font_prefix} 10.${Font_color_suffix} 运行  SSR
+ ${Green_font_prefix} 11.${Font_color_suffix} 运行  批量SSH下发命令"
 read -p "请输入数字 [1-9]:" numm
 
 if [ "$numm" -eq "1" ];then
@@ -341,7 +361,15 @@ qa
 elif [ "$numm" -eq "5" ];then
 iptool
 elif [ "$numm" -eq "6" ];then
-ssr
+ub16b0
 elif [ "$numm" -eq "7" ];then
+ub16b4
+elif [ "$numm" -eq "8" ];then
+ub1804
+elif [ "$numm" -eq "9" ];then
+ub18b4
+elif [ "$numm" -eq "10" ];then
+ssr
+elif [ "$numm" -eq "11" ];then
 autossh
 fi
