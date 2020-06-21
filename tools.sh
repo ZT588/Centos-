@@ -298,6 +298,166 @@ done
 }
 
 
+
+16bound0(){
+#/bin/bash
+apt install figlet > /dev/null
+apt-get install ifenslave > /dev/null
+modprobe bonding
+cho -n "" >>/etc/network/interfaces
+
+figlet ZENLAYER
+echo "**此脚本使用于ubuntu配置Bound0，需要手动输入网络位，掩码，网关，网卡信息**"
+
+echo -n "IP 地址(192.168.1.2):"
+read num
+
+
+echo -n "掩码(255.255.255.0):"
+read c
+
+echo -n "网关(192.168.1.1):"
+read g
+
+echo -n "网卡名1(eth0):"
+read d
+echo -n "网卡名(eth1):"
+read h
+
+
+  echo "
+auto bond0   
+iface bond0 inet static
+address $num
+netmask $c
+gateway $g
+dns-nameserver 8.8.8.8
+bond-slaves $d $h     #这是三网口做bond0，具体需要看网卡名以及数量
+ 
+auto $n
+iface $n inet manual
+bond-master bond0
+ 
+auto $h
+iface $h inet manual
+bond-master bond0 >>/etc/network/interfaces
+done
+}
+
+
+16bound4(){
+#/bin/bash
+apt install figlet > /dev/null
+apt-get install ifenslave > /dev/null
+modprobe bonding
+echo "rtc" >>/etc/moduleslp
+echo "bonding" >>/etc/moduleslp
+
+echo -n "" >>/etc/network/interfaces
+
+figlet ZENLAYER
+echo "**此脚本使用于ubuntu配置Bound0，需要手动输入网络位，掩码，网关，网卡信息**"
+
+echo -n "IP 地址(192.168.1.2):"
+read num
+
+
+echo -n "掩码(255.255.255.0):"
+read c
+
+echo -n "网关(192.168.1.1):"
+read g
+
+echo -n "网卡名1(eth0):"
+read d
+echo -n "网卡名(eth1):"
+read h
+
+
+  echo "
+auto bond0    #创建以Bond0命名的网卡
+    address $num
+    gateway $g
+    netmask $c
+    bond-mode 4
+    bond-miimon 100
+    bond-lacp-rate 1
+    bond-xmit_hash_policy 1
+    bond-slaves $d $h
+ 
+ 
+auto $d
+iface $d inet manual
+bond-master bond0
+ 
+auto $h
+iface $h inet manual
+bond-master bond0 >>/etc/network/interfaces
+done
+}
+
+18IP(){
+#/bin/bash              
+echo "**此脚本使用于ubuntu18.04配置主IP，需要手动输入IP，网关，网卡信息**"
+echo -n "IPaddress(192.168.1/30):"
+read num
+echo -n "Gateway:"
+read g
+echo -n "NIC Name(eth0):"
+read d
+m=$(find  /etc/netplan | grep .*yaml)
+
+  echo "
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    
+    $d:
+      dhcp4: no
+      dhcp6: no
+      addresses: [$num]
+      gateway4: $g
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]" >>$m
+}
+
+
+18Bound4(){
+#/bin/bash              
+echo "**此脚本使用于ubuntu18.04配置主IP，需要手动输入IP，网关，网卡信息**"
+echo -n "IPaddress(192.168.1/30):"
+read num
+echo -n "Gateway:"
+read g
+echo -n "NIC Name(eth0):"
+read d
+m=$(find  /etc/netplan | grep .*yaml)
+echo -n "" >>$m
+
+  echo "
+network:
+    renderer: NetworkManager
+    ethernets:
+        eth1：
+            dhcp:no
+        eth2:
+            dhcp:no
+    version: 2
+    bonds:
+        bond0:
+            interfaces:[eth1,eth2]
+            addresses:[$num] 
+            gateway: $g
+            nameservers:
+                addresses: [8.8.8.8, 8.8.4.4]
+            parameters:
+                mode:4
+                lacp-rate:fast
+                mii-monitor-interval:100" >>$m
+}
+
+
 ssr(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
 }
@@ -305,6 +465,12 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 autossh(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/ZT588/Centos-/master/autossh1.0.sh && chmod +x autossh1.0.sh && bash autossh1.0.sh
 }
+
+
+
+
+
+
 
 
 
@@ -321,12 +487,16 @@ yum install figlet -y > /dev/null
 figlet NOC Tools
  echo && echo -e "一键运维脚本
  ${Green_font_prefix} 1.${Font_color_suffix} 运行  批量PING IP
- ${Green_font_prefix} 2.${Font_color_suffix} 运行  ASPING
- ${Green_font_prefix} 3.${Font_color_suffix} 运行  批量配置IP
- ${Green_font_prefix} 4.${Font_color_suffix} 运行  QA
- ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu 批量配置IP
- ${Green_font_prefix} 6.${Font_color_suffix} 安装  SSR
- ${Green_font_prefix} 7.${Font_color_suffix} 运行  批量SSH下发命令"
+ ${Green_font_prefix} 2.${Font_color_suffix} 运行  AS-PING
+ ${Green_font_prefix} 3.${Font_color_suffix} 运行  Centos 批量配置IP
+ ${Green_font_prefix} 4.${Font_color_suffix} 运行  Centos QA
+ ${Green_font_prefix} 5.${Font_color_suffix} 运行  ubuntu16.X 批量配置IP
+ ${Green_font_prefix} 6.${Font_color_suffix} 运行  ubuntu16.X 配置Bound0
+ ${Green_font_prefix} 7.${Font_color_suffix} 运行  ubuntu16.X 配置Bound4
+ ${Green_font_prefix} 8.${Font_color_suffix} 运行  ubuntu18.04 配置IP
+ ${Green_font_prefix} 9.${Font_color_suffix} 运行  ubuntu18.04 配置Bound4
+ ${Green_font_prefix} 10.${Font_color_suffix} 安装  SSR
+ ${Green_font_prefix} 11.${Font_color_suffix} 批量SSH下发命令"
 read -p "请输入数字 [1-9]:" numm
 
 if [ "$numm" -eq "1" ];then
@@ -341,8 +511,16 @@ qa
 elif [ "$numm" -eq "5" ];then
 iptool
 elif [ "$numm" -eq "6" ];then
-ssr
+16bound0
 elif [ "$numm" -eq "7" ];then
+16bound4
+elif [ "$numm" -eq "8" ];then
+18IP
+elif [ "$numm" -eq "9" ];then
+18Bound4
+elif [ "$numm" -eq "10" ];then
+ssr
+elif [ "$numm" -eq "10" ];then
 autossh
 fi
 
