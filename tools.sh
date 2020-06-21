@@ -338,11 +338,11 @@ figlet NOC Tools
  echo && echo -e "一键运维脚本合集V1.0
  ${Green_font_prefix} 1.${Font_color_suffix}  运行  批量PING IP
  ${Green_font_prefix} 2.${Font_color_suffix}  运行  ASPING
- ${Green_font_prefix} 3.${Font_color_suffix}  运行  批量配置IP
+ ${Green_font_prefix} 3.${Font_color_suffix}  运行  Centos批量配置IP
  ${Green_font_prefix} 4.${Font_color_suffix}  运行  QA
- ${Green_font_prefix} 5.${Font_color_suffix}  运行  ubuntu 批量配置IP
- ${Green_font_prefix} 6.${Font_color_suffix}  安装  ubuntu Bound0
- ${Green_font_prefix} 7.${Font_color_suffix}  运行  ubuntu Bound4
+ ${Green_font_prefix} 5.${Font_color_suffix}  运行  Ubuntu 批量配置IP
+ ${Green_font_prefix} 6.${Font_color_suffix}  安装  Ubuntu Bound0
+ ${Green_font_prefix} 7.${Font_color_suffix}  运行  Ubuntu Bound4
  ${Green_font_prefix} 8.${Font_color_suffix}  运行  Ubuntu18.04 配置IP
  ${Green_font_prefix} 9.${Font_color_suffix}  运行  Ubuntu18 Bound4
  ${Green_font_prefix} 10.${Font_color_suffix} 运行  SSR
