@@ -19,9 +19,9 @@ mv $interface_file1 /etc/sysconfig/network-scripts/ifcfg-wan0
 mv $interface_file2 /etc/sysconfig/network-scripts/ifcfg-lan0
 
 
-sed -i '$a \SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="$mac1", ATTR{type}=="1" , NAME="wan0"' /usr/lib/udev/rules.d/60-net.rules
-sed -i '$a \SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="$mac2", ATTR{type}=="1" , NAME="lan0"' /usr/lib/udev/rules.d/60-net.rules
+sed -i '$a \SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="mac1", ATTR{type}=="1" , NAME="wan0"' /usr/lib/udev/rules.d/60-net.rules
+sed -i '$a \SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="mac2", ATTR{type}=="1" , NAME="lan0"' /usr/lib/udev/rules.d/60-net.rules
 
 sed -i "s/mac1/$mac1/"  /usr/lib/udev/rules.d/60-net.rules
 
-sed -i "s/mac1/$mac2/"  /usr/lib/udev/rules.d/60-net.rules
+sed -i "s/mac2/$mac2/"  /usr/lib/udev/rules.d/60-net.rules
