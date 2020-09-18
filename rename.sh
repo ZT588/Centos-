@@ -13,7 +13,7 @@ mac1=`ifconfig $interface1 |egrep "ether" |awk '{print $2}'`
 mac2=`ifconfig $interface2 |egrep "ether" |awk '{print $2}'`
 
 sed -i "s/$interface1/wan0/" $interface_file1
-sed -i "s/$interface2/lan0/" $interface_file1
+sed -i "s/$interface2/lan0/" $interface_file2
 
 mv $interface_file1 /etc/sysconfig/network-scripts/ifcfg-wan0
 mv $interface_file2 /etc/sysconfig/network-scripts/ifcfg-lan0
