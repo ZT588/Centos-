@@ -348,7 +348,7 @@ figlet NOC Tools
  ${Green_font_prefix} 8.${Font_color_suffix}  运行  Ubuntu18.04 配置IP
  ${Green_font_prefix} 9.${Font_color_suffix}  运行  Ubuntu18 Bound4
  ${Green_font_prefix} 10.${Font_color_suffix} 运行  SSR
- ${Green_font_prefix} 11.${Font_color_suffix} 运行  批量SSH下发命令"
+ ${Green_font_prefix} 11.${Font_color_suffix} 运行  批量SSH下发命令
  ${Green_font_prefix} 12.${Font_color_suffix} 运行  centos7修改网卡名"
  
 read -p "请输入数字 [1-9]:" numm
