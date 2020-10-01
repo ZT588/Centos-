@@ -337,7 +337,7 @@ clear
 yum install figlet -y > /dev/null
 
 figlet NOC Tools
- echo && echo -e "一键运维脚本合集V2.0-support by todd.zhang
+ echo && echo -e "一键运维脚本合集V2.0 
  ${Green_font_prefix} 1.${Font_color_suffix}  运行  批量PING IP
  ${Green_font_prefix} 2.${Font_color_suffix}  运行  ASPING
  ${Green_font_prefix} 3.${Font_color_suffix}  运行  Centos批量配置IP
@@ -349,9 +349,10 @@ figlet NOC Tools
  ${Green_font_prefix} 9.${Font_color_suffix}  运行  Ubuntu18 Bound4
  ${Green_font_prefix} 10.${Font_color_suffix} 运行  SSR
  ${Green_font_prefix} 11.${Font_color_suffix} 运行  批量SSH下发命令
- ${Green_font_prefix} 12.${Font_color_suffix} 运行  centos7修改网卡名"
+ ${Green_font_prefix} 12.${Font_color_suffix} 运行  centos7修改网卡名
+                                              support by todd.zhang"
  
-read -p "请输入数字 [1-9]:" numm
+read -p "请输入数字[1-12]:" numm
 
 if [ "$numm" -eq "1" ];then
 ipping
