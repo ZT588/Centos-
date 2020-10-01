@@ -337,7 +337,7 @@ clear
 yum install figlet -y > /dev/null
 
 figlet NOC Tools
- echo && echo -e "一键运维脚本合集V1.0
+ echo && echo -e "一键运维脚本合集V2.0-support by todd.zhang
  ${Green_font_prefix} 1.${Font_color_suffix}  运行  批量PING IP
  ${Green_font_prefix} 2.${Font_color_suffix}  运行  ASPING
  ${Green_font_prefix} 3.${Font_color_suffix}  运行  Centos批量配置IP
