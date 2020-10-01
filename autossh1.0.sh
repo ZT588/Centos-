@@ -3,9 +3,11 @@
 echo "1.提前创建ip.txt写入IP。2.创建result.txt"
 echo -n "输入密码:"
 read password
+echo -n "输入端口号"
+read port
 username="root"
 #password="V1gzngilpBluf0t@"
-port="22"
+#port="22"
 timeout=3
 echo -n "远程执行命令:"
 read cmd
