@@ -322,7 +322,9 @@ autossh(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/ZT588/Centos-/master/autossh1.0.sh && chmod +x autossh1.0.sh && bash autossh1.0.sh
 }
 
-
+rename(){
+wget -N --no-check-certificate https://raw.githubusercontent.com/ZT588/Centos-/master/rename.sh && chmod +x rename.sh && bash rename.sh
+}
 
 Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m"
 Green_background_prefix="\033[42;37m"
@@ -347,6 +349,8 @@ figlet NOC Tools
  ${Green_font_prefix} 9.${Font_color_suffix}  运行  Ubuntu18 Bound4
  ${Green_font_prefix} 10.${Font_color_suffix} 运行  SSR
  ${Green_font_prefix} 11.${Font_color_suffix} 运行  批量SSH下发命令"
+ ${Green_font_prefix} 12.${Font_color_suffix} 运行  centos7修改网卡名"
+ 
 read -p "请输入数字 [1-9]:" numm
 
 if [ "$numm" -eq "1" ];then
@@ -372,4 +376,6 @@ elif [ "$numm" -eq "10" ];then
 ssr
 elif [ "$numm" -eq "11" ];then
 autossh
+elif [ "$numm" -eq "12" ];then
+rename
 fi
