@@ -379,5 +379,9 @@ elif [ "$numm" -eq "11" ];then
 autossh
 elif [ "$numm" -eq "12" ];then
 rename
-rm tool.sh -y
+
 fi
+
+rm tool.sh 
+
+
