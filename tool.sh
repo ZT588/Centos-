@@ -350,7 +350,7 @@ figlet NOC Tools
  ${Green_font_prefix} 10.${Font_color_suffix} 运行  SSR
  ${Green_font_prefix} 11.${Font_color_suffix} 运行  批量SSH下发命令
  ${Green_font_prefix} 12.${Font_color_suffix} 运行  centos7修改网卡名
-                                              support by todd.zhang"
+  support by todd.zhang"
  
 read -p "请输入数字[1-12]:" numm
 
