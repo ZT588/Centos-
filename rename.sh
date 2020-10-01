@@ -7,9 +7,9 @@ echo "*******Centos7 双网卡修改网卡名******Power by todd.zhang**********
 interface1=`ls /sys/class/net|grep en|awk 'NR==1{print}'`
 interface2=`ls /sys/class/net|grep en|awk 'NR==2{print}'`
 
-echo -n "will change to $interface1 : "
+echo -n "$interface1 will change to : "
 read nic1
-echo -n "will change to $interface2 : "
+echo -n "$interface2 will change to :  "
 read nic2
 
 
